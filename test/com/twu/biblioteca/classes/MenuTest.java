@@ -4,33 +4,28 @@ import static org.junit.Assert.*;
 
 public class MenuTest {
 
-    //Should display all menu options
     @Test
-    public void displaysOptions() {
+    public void canSeeAllMenuOptions() {
 
     }
 
-    //Should be able to select menu option
     @Test
-    public void selectOption() {
+    public void canSelectMenuOption() {
 
     }
 
-    //Should display error message if invalid option selected
     @Test
-    public void returnsErrorIfOptionInvalid() {
+    public void returnsErrorIfMenuOptionInvalid() {
 
     }
 
-    //Should list all available books if option selected
     @Test
-    public void displaysBookList() {
+    public void canSeeAllAvailableBooksInList() {
 
     }
 
-    //Should list more book details if selected
     @Test
-    public void displaysBookDetails() {
+    public void canSeeBookDetails() {
 
     }
 
