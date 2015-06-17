@@ -3,6 +3,10 @@ package com.twu.biblioteca.main;
 public class Main {
 
     public static void main(String[] args) {
-        System.out.println("Hello, world!");
+        printWelcomeMessage();
+    }
+
+    public static void printWelcomeMessage(){
+        System.out.println("Welcome to Biblioteca!");
     }
 }
