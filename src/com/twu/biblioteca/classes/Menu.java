@@ -34,6 +34,7 @@ public class Menu {
 
     public static void invalidOptionMessage() {
         System.out.println("Invalid option. Please select a valid option.");
+        showMainMenuOptions();
     }
 
     public static void selectMainMenuOption(int optionNumber) {
@@ -111,6 +112,7 @@ public class Menu {
                 int bookIndex = optionNumber - 1;
                 Book selectedBook = availableBooks.get(bookIndex);
                 selectedBook.setIsCheckedOut(true);
+                showAvailableBookList();
             } else if (optionNumber == availableBooks.size() + 1) {
                 showMainMenuOptions();
             }
