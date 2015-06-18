@@ -36,7 +36,7 @@ public class Menu {
                 //TODO: Find another more flexible method to switch menu options later
                 switch (optionNumber) {
                     case 1:
-                        printBookListMenuOption();
+                        //printBookListMenuOption();
                         break;
                     case 2:
                         //returnBookMenuOption();
