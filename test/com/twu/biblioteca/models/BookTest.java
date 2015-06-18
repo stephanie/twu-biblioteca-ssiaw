@@ -6,8 +6,16 @@ import static org.junit.Assert.*;
 public class BookTest {
 
     @Test
-    public void requireBookNameAuthorYearPublished() {
+    public void testConstructorTakesNameAuthorYearPublished() {
+        String name = "The Great Codesby";
+        String author = "Coder McGee";
+        int yearPublished = 1975;
 
+        Book myBook = new Book(name, author, yearPublished);
+
+        assertEquals(myBook.getName(), name);
+        assertEquals(myBook.getAuthor(), author);
+        assertEquals(myBook.getYearPublished(), yearPublished);
     }
 
     @Test

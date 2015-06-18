@@ -32,7 +32,19 @@ public class Menu {
             if (optionNumber <= 0 || optionNumber > menuOptions.size()) {
                 invalidOptionMessage();
             } else {
-                å
+
+                //TODO: Find another more flexible method to switch menu options later
+                switch (optionNumber) {
+                    case 1:
+                        printBookListMenuOption();
+                        break;
+                    case 2:
+                        //returnBookMenuOption();
+                        break;
+                    case 3:
+                        System.out.println("Thank you for using Biblioteca! Exiting system...");
+                        System.exit(0);
+                }
             }
         } catch (Exception e) {
             invalidOptionMessage();

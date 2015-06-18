@@ -3,6 +3,7 @@ package com.twu.biblioteca.classes;
 import org.junit.Before;
 import org.junit.After;
 import org.junit.Test;
+import org.junit.Rule;
 
 import java.io.PrintStream;
 import java.io.ByteArrayOutputStream;
@@ -13,6 +14,9 @@ public class MenuTest {
 
     private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
     private final ByteArrayOutputStream errContent = new ByteArrayOutputStream();
+
+//    @Rule
+//    public final ExpectedSystemExit exit = ExpectedSystemExit.none();
 
     @Before
     public void setUpStreams() {
@@ -45,6 +49,13 @@ public class MenuTest {
         Menu.selectMenuOption(23);
         assertEquals(invalidOptionMessage, outContent.toString());
     }
+
+// TODO: Get exit test working
+//    @Test
+//    public void canSelectOptionToExitSystem() {
+//        Menu.selectMenuOption(3);
+//        exit.expectSystemExitWithStatus(0);
+//    }
 
     @Test
     public void canSelectOptionToSeeAvailableBookList() {
