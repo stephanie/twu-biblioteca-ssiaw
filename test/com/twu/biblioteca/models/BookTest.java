@@ -19,11 +19,6 @@ public class BookTest {
     }
 
     @Test
-    public void canSeeBookDetails() {
-
-    }
-
-    @Test
     public void canCheckoutBook() {
 
     }

@@ -1,5 +1,6 @@
 package com.twu.biblioteca.classes;
 
+import com.twu.biblioteca.models.Book;
 import org.junit.Before;
 import org.junit.After;
 import org.junit.Test;
@@ -7,6 +8,7 @@ import org.junit.Rule;
 
 import java.io.PrintStream;
 import java.io.ByteArrayOutputStream;
+import java.lang.management.MemoryNotificationInfo;
 
 import static org.junit.Assert.*;
 
@@ -50,21 +52,21 @@ public class MenuTest {
         assertEquals(invalidOptionMessage, outContent.toString());
     }
 
-// TODO: Get exit test working
+    @Test
+    public void canReturnAllAvailableBooks() {
+        Menu.addBookToMenu("Grapes of Ruby", "Coder McGee", 1987);
+        Menu.addBookToMenu("Little Java Women", "Coder McGee", 1877);
+        //Menu.addBookToMenu("Who broke the code?", "Coder McGee", 2007);
+        //Book.checkoutBook("Little Java Women");
+
+        assertEquals(2, Menu.returnAvailableBooks().size());
+    }
+
+//    TODO: Get exit test working
 //    @Test
 //    public void canSelectOptionToExitSystem() {
 //        Menu.selectMenuOption(3);
 //        exit.expectSystemExitWithStatus(0);
 //    }
-
-    @Test
-    public void canSelectOptionToSeeAvailableBookList() {
-
-    }
-
-    @Test
-    public void canQuit() {
-
-    }
 
 }

@@ -1,10 +1,12 @@
 package com.twu.biblioteca.classes;
 
+import com.twu.biblioteca.models.Book;
 import java.util.ArrayList;
 
 public class Menu {
 
     public static ArrayList<String> menuOptions = new ArrayList<String> ();
+    private static ArrayList<Book> books = new ArrayList<Book>();
 
     public static void addOptions(){
         menuOptions.add("List Available Books");
@@ -49,6 +51,15 @@ public class Menu {
         } catch (Exception e) {
             invalidOptionMessage();
         }
+    }
+
+    public static void addBookToMenu(String name, String author, int yearPublished) {
+        Book book = new Book(name, author, yearPublished);
+        Menu.books.add(book);
+    }
+
+    public static ArrayList<Book> returnAvailableBooks() {
+        return books;
     }
 
 }
