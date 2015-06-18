@@ -31,18 +31,4 @@ public class BookTest {
         assertTrue(myBook.getIsCheckedOut());
     }
 
-    @Test
-    public void canReturnBook() {
-        String name = "The Great Codesby";
-        String author = "Coder McGee";
-        int yearPublished = 1975;
-
-        Book myBook = new Book(name, author, yearPublished);
-
-        myBook.setIsCheckedOut(true);
-        myBook.returnBook(name);
-
-        assertFalse(myBook.getIsCheckedOut());
-    }
-
 }

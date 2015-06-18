@@ -27,7 +27,6 @@ public class Book {
 
     public void setIsCheckedOut(boolean checkedOut) {
         isCheckedOut = checkedOut;
-        System.out.println("Thank you! Enjoy the book!\n");
     }
 
     public boolean getIsCheckedOut() {

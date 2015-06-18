@@ -4,7 +4,6 @@ import com.twu.biblioteca.models.Book;
 import org.junit.Before;
 import org.junit.After;
 import org.junit.Test;
-import org.junit.Rule;
 
 import java.io.PrintStream;
 import java.io.ByteArrayOutputStream;
@@ -15,9 +14,6 @@ public class MenuTest {
 
     private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
     private final ByteArrayOutputStream errContent = new ByteArrayOutputStream();
-
-//    @Rule
-//    public final ExpectedSystemExit exit = ExpectedSystemExit.none();
 
     @Before
     public void setUpStreams() {
@@ -65,11 +61,16 @@ public class MenuTest {
         assertEquals(2, Menu.getAvailableBooks().size());
     }
 
-//    TODO: Get exit test working
-//    @Test
-//    public void canSelectOptionToExitSystem() {
-//        Menu.selectMenuOption(3);
-//        exit.expectSystemExitWithStatus(0);
-//    }
+    @Test
+    public void canReturnBook() {
+        Book book1 = new Book("Grapes of Ruby", "Coder McGee II", 1987);
+        Menu.addBookToMenu(book1);
+
+        book1.setIsCheckedOut(true);
+        String name = book1.getName();
+
+        assertTrue(Menu.returnBook(name));
+        assertFalse(book1.getIsCheckedOut());
+    }
 
 }

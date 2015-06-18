@@ -33,7 +33,7 @@ public class Menu {
     }
 
     public static void invalidOptionMessage() {
-        System.out.println("Invalid option. Please select a valid option.");
+        System.out.println("Invalid option. Please select a valid option.\n");
         showMainMenuOptions();
     }
 
@@ -49,7 +49,7 @@ public class Menu {
                         showAvailableBookList();
                         break;
                     case 2:
-                        //returnBookMenuOption();
+                        returnBookMenuOption();
                         break;
                     case 3:
                         System.out.println("Thank you for using Biblioteca! Exiting system...");
@@ -112,6 +112,7 @@ public class Menu {
                 int bookIndex = optionNumber - 1;
                 Book selectedBook = availableBooks.get(bookIndex);
                 selectedBook.setIsCheckedOut(true);
+                System.out.println("Thank you! Enjoy the book!\n");
                 showAvailableBookList();
             } else if (optionNumber == availableBooks.size() + 1) {
                 showMainMenuOptions();
@@ -119,6 +120,39 @@ public class Menu {
         } catch (Exception e) {
             invalidOptionMessage();
         }
+    }
+
+    public static boolean returnBook(String name) {
+        boolean bookFound = false;
+        for(Book book : books) {
+            if (book.getName().equals(name) && book.getIsCheckedOut()) {
+                book.setIsCheckedOut(false);
+                bookFound = true;
+                break;
+            }
+        }
+        return bookFound;
+    }
+
+    public static void printReturnBookMessages(boolean success) {
+        if (success) {
+            System.out.println("Thank you for returning the book.\n");
+            showMainMenuOptions();
+        } else {
+            System.out.println("That is not a valid book to return. Please try again.\n");
+            returnBookMenuOption();
+        }
+    }
+
+    public static void returnBookMenuOption(){
+        String returnBookMenu = "Return Book\nReturn your book by inputting its name:";
+
+        System.out.println(returnBookMenu);
+
+        Scanner scan = new Scanner(System.in);
+        String userBookNameInput = scan.nextLine();
+
+        printReturnBookMessages(returnBook(userBookNameInput));
     }
 
 }
