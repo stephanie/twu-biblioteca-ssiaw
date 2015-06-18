@@ -11,8 +11,22 @@ public class BookTest {
     }
 
     @Test
+    public void canSeeBookDetails() {
+
+    }
+
+    @Test
     public void canCheckoutBook() {
 
     }
 
+    @Test
+    public void cannotCheckoutBookIfAlreadyCheckedOut() {
+
+    }
+
+    @Test
+    public void canReturnBook() {
+
+    }
 }

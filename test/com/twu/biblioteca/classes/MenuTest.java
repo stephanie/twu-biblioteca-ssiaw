@@ -39,22 +39,20 @@ public class MenuTest {
     }
 
     @Test
-    public void canSelectMenuOption() {
-
-    }
-
-    @Test
     public void returnsErrorIfMenuOptionInvalid() {
+        String invalidOptionMessage = "Invalid option. Please select a valid option.\n";
+
+        Menu.selectMenuOption(23);
+        assertEquals(invalidOptionMessage, outContent.toString());
+    }
+
+    @Test
+    public void canSelectOptionToSeeAvailableBookList() {
 
     }
 
     @Test
-    public void canSeeAllAvailableBooksInList() {
-
-    }
-
-    @Test
-    public void canSeeBookDetails() {
+    public void canQuit() {
 
     }
 
