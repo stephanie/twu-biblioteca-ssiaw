@@ -27,16 +27,15 @@ public class MenuTest {
     }
 
     @Test
-    public void canSeeAllMenuOptions() {
-        StringBuilder menuOptions = new StringBuilder();
-        menuOptions.append("Please select from the options below:\n");
-        menuOptions.append("1. List Available Books\n");
-        menuOptions.append("2. Return Book\n");
-        menuOptions.append("3. Quit\n");
+    public void canSeeFullMenu() {
+        String menu = "Please select from the options below:\n";
+        menu += "1. List Available Books\n";
+        menu += "2. Return Book\n";
+        menu += "3. Quit\n";
 
-        Menu.printMenuOptions();
+        Menu.printOptions();
 
-        assertEquals(menuOptions, outContent.toString());
+        assertEquals(menu, outContent.toString());
     }
 
     @Test
