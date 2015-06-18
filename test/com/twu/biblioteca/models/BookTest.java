@@ -20,16 +20,19 @@ public class BookTest {
 
     @Test
     public void canCheckoutBook() {
+        String name = "The Great Codesby";
+        String author = "Coder McGee";
+        int yearPublished = 1975;
 
-    }
+        Book myBook = new Book(name, author, yearPublished);
 
-    @Test
-    public void cannotCheckoutBookIfAlreadyCheckedOut() {
-
+        myBook.setIsCheckedOut(true);
+        assertTrue(myBook.getIsCheckedOut());
     }
 
     @Test
     public void canReturnBook() {
 
     }
+
 }

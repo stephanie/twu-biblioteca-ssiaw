@@ -29,7 +29,7 @@ public class MainTest {
     @Test
     public void canSeeWelcomeMessageOnApplicationStart() {
         Main.printWelcomeMessage();
-        assertEquals("Welcome to Biblioteca!\n", outContent.toString());
+        assertEquals("Welcome to Biblioteca! Loading library...\n\n", outContent.toString());
     }
 
 }

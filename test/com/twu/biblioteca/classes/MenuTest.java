@@ -8,7 +8,6 @@ import org.junit.Rule;
 
 import java.io.PrintStream;
 import java.io.ByteArrayOutputStream;
-import java.lang.management.MemoryNotificationInfo;
 
 import static org.junit.Assert.*;
 
@@ -34,12 +33,12 @@ public class MenuTest {
 
     @Test
     public void canSeeFullMenu() {
-        String menu = "Please select from the options below:\n";
+        String menu = "Main Menu\nPlease select from the options below by inputting the number:\n\n";
         menu += "1. List Available Books\n";
         menu += "2. Return Book\n";
         menu += "3. Quit\n";
 
-        Menu.printOptions();
+        Menu.showMainMenuOptions();
 
         assertEquals(menu, outContent.toString());
     }
@@ -47,19 +46,23 @@ public class MenuTest {
     @Test
     public void returnsErrorIfMenuOptionInvalid() {
         String invalidOptionMessage = "Invalid option. Please select a valid option.\n";
-
-        Menu.selectMenuOption(23);
+        Menu.selectMainMenuOption(23);
         assertEquals(invalidOptionMessage, outContent.toString());
     }
 
     @Test
-    public void canReturnAllAvailableBooks() {
-        Menu.addBookToMenu("Grapes of Ruby", "Coder McGee", 1987);
-        Menu.addBookToMenu("Little Java Women", "Coder McGee", 1877);
-        //Menu.addBookToMenu("Who broke the code?", "Coder McGee", 2007);
-        //Book.checkoutBook("Little Java Women");
+    public void canSeeAllAvailableBooks() {
+        Book book1 = new Book("Grapes of Ruby", "Coder McGee II", 1987);
+        Book book2 = new Book("Little Java Women", "Coder McGee", 1877);
+        Book book3 = new Book("Who broke the code?", "Coder McGee III", 2007);
 
-        assertEquals(2, Menu.returnAvailableBooks().size());
+        Menu.addBookToMenu(book1);
+        Menu.addBookToMenu(book2);
+        Menu.addBookToMenu(book3);
+
+        book1.setIsCheckedOut(true);
+
+        assertEquals(2, Menu.getAvailableBooks().size());
     }
 
 //    TODO: Get exit test working
