@@ -47,14 +47,13 @@ public class Menu {
             if (optionNumber <= 0 || optionNumber > mainOptions.size()) {
                 invalidOptionMessage();
             } else {
-
                 //TODO: Find another more flexible method to switch menu options later
                 switch (optionNumber) {
                     case 1:
-                        Library.availableBookListAndUserSelection();
+                        BookLibrary.availableBookListAndUserSelection();
                         break;
                     case 2:
-                        Library.returnBookOptionAndUserInput();
+                        BookLibrary.returnBookOptionAndUserInput();
                         break;
                     case 3:
                         System.out.println("Thank you for using Biblioteca! Exiting system...");

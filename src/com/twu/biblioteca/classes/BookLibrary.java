@@ -5,12 +5,12 @@ import java.util.ArrayList;
 
 import java.util.Scanner;
 
-public class Library {
+public class BookLibrary {
 
     public static ArrayList<Book> books = new ArrayList<Book>();
 
     public static void addBook(Book book) {
-        Library.books.add(book);
+        BookLibrary.books.add(book);
     }
 
     public static ArrayList<Book> getAvailableBooks() {
