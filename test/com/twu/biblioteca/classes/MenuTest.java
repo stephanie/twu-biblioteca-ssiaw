@@ -1,6 +1,5 @@
 package com.twu.biblioteca.classes;
 
-import com.twu.biblioteca.models.Book;
 import org.junit.Before;
 import org.junit.After;
 import org.junit.Test;
@@ -34,7 +33,8 @@ public class MenuTest {
         menu += "2. Return Book\n";
         menu += "3. Quit\n";
 
-        Menu.showMainMenuOptions();
+        Menu.addMainOptions();
+        Menu.showMainOptions();
 
         assertEquals(menu, outContent.toString());
     }
@@ -42,35 +42,8 @@ public class MenuTest {
     @Test
     public void returnsErrorIfMenuOptionInvalid() {
         String invalidOptionMessage = "Invalid option. Please select a valid option.\n";
-        Menu.selectMainMenuOption(23);
+        Menu.selectMainOption(23);
         assertEquals(invalidOptionMessage, outContent.toString());
-    }
-
-    @Test
-    public void canSeeAllAvailableBooks() {
-        Book book1 = new Book("Grapes of Ruby", "Coder McGee II", 1987);
-        Book book2 = new Book("Little Java Women", "Coder McGee", 1877);
-        Book book3 = new Book("Who broke the code?", "Coder McGee III", 2007);
-
-        Menu.addBookToMenu(book1);
-        Menu.addBookToMenu(book2);
-        Menu.addBookToMenu(book3);
-
-        book1.setIsCheckedOut(true);
-
-        assertEquals(2, Menu.getAvailableBooks().size());
-    }
-
-    @Test
-    public void canReturnBook() {
-        Book book1 = new Book("Grapes of Ruby", "Coder McGee II", 1987);
-        Menu.addBookToMenu(book1);
-
-        book1.setIsCheckedOut(true);
-        String name = book1.getName();
-
-        assertTrue(Menu.returnBook(name));
-        assertFalse(book1.getIsCheckedOut());
     }
 
 }

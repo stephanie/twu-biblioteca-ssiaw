@@ -1,55 +1,60 @@
 package com.twu.biblioteca.classes;
 
-import com.twu.biblioteca.models.Book;
 import java.util.ArrayList;
 
 import java.util.Scanner;
 
 public class Menu {
 
-    public static ArrayList<String> menuOptions = new ArrayList<String> ();
-    private static ArrayList<Book> books = new ArrayList<Book>();
+    public static ArrayList<String> mainOptions = new ArrayList<String> ();
 
-    public static void addMainMenuOptions(){
-        menuOptions.add("List Available Books");
-        menuOptions.add("Return Book");
-        menuOptions.add("Quit");
+    public static void addMainOptions() {
+        mainOptions.add("List Available Books");
+        mainOptions.add("Return Book");
+        mainOptions.add("Quit");
     }
 
-    public static void showMainMenuOptions(){
+    public static void showMainOptions() {
         String menu = "Main Menu\nPlease select from the options below by inputting the number:\n";
 
-        for(String option : menuOptions){
-            String menuOption = "\n" + (menuOptions.indexOf(option)+1) + ". " + option;
+        for(String option : mainOptions){
+            String menuOption = "\n" + (mainOptions.indexOf(option)+1) + ". " + option;
             menu += menuOption;
         }
 
         System.out.println(menu);
+    }
 
+    public static void getUserMainOptionSelection() {
         Scanner scan = new Scanner(System.in);
-        int userMenuOptionSelection = scan.nextInt();
+        int userSelection = scan.nextInt();
 
-        selectMainMenuOption(userMenuOptionSelection);
+        selectMainOption(userSelection);
+    }
+
+    public static void mainOptionsAndUserSelection() {
+        showMainOptions();
+        getUserMainOptionSelection();
     }
 
     public static void invalidOptionMessage() {
         System.out.println("Invalid option. Please select a valid option.\n");
-        showMainMenuOptions();
+        mainOptionsAndUserSelection();
     }
 
-    public static void selectMainMenuOption(int optionNumber) {
+    public static void selectMainOption(int optionNumber) {
         try {
-            if (optionNumber <= 0 || optionNumber > menuOptions.size()) {
+            if (optionNumber <= 0 || optionNumber > mainOptions.size()) {
                 invalidOptionMessage();
             } else {
 
                 //TODO: Find another more flexible method to switch menu options later
                 switch (optionNumber) {
                     case 1:
-                        showAvailableBookList();
+                        Library.availableBookListAndUserSelection();
                         break;
                     case 2:
-                        returnBookMenuOption();
+                        Library.returnBookOptionAndUserInput();
                         break;
                     case 3:
                         System.out.println("Thank you for using Biblioteca! Exiting system...");
@@ -59,100 +64,6 @@ public class Menu {
         } catch (Exception e) {
             invalidOptionMessage();
         }
-    }
-
-    public static void addBookToMenu(Book book) {
-        Menu.books.add(book);
-    }
-
-    public static ArrayList<Book> getAvailableBooks() {
-        ArrayList<Book> availableBookList = new ArrayList<Book>();
-        for(Book book : books) {
-            if (!book.getIsCheckedOut()) {
-                availableBookList.add(book);
-            }
-        }
-        return availableBookList;
-    }
-
-    public static void showAvailableBookList(){
-        String bookList = "Books Available\nCheckout a book below by inputting the number:\n";
-
-        ArrayList<Book> availableBooks = getAvailableBooks();
-
-        for(Book book : availableBooks){
-            int index = availableBooks.indexOf(book)+1;
-            String name = book.getName();
-            String author = book.getAuthor();
-            int yearPublished = book.getYearPublished();
-
-            String bookEntry = "\n" + index + ". " + name + ", " + author + ", " + yearPublished;
-            bookList += bookEntry;
-        }
-
-        bookList += "\n" + (availableBooks.size()+1) + ". Return to Main Menu";
-
-        System.out.println(bookList);
-
-        Scanner scan = new Scanner(System.in);
-        int userMenuOptionSelection = scan.nextInt();
-
-        selectBookListOption(userMenuOptionSelection);
-    }
-
-
-    public static void selectBookListOption(int optionNumber) {
-        try {
-
-            ArrayList<Book> availableBooks = getAvailableBooks();
-
-            if (optionNumber <= 0 || optionNumber > availableBooks.size() + 1) {
-                invalidOptionMessage();
-            } else if (optionNumber > 0 && optionNumber <= availableBooks.size()) {
-                int bookIndex = optionNumber - 1;
-                Book selectedBook = availableBooks.get(bookIndex);
-                selectedBook.setIsCheckedOut(true);
-                System.out.println("Thank you! Enjoy the book!\n");
-                showAvailableBookList();
-            } else if (optionNumber == availableBooks.size() + 1) {
-                showMainMenuOptions();
-            }
-        } catch (Exception e) {
-            invalidOptionMessage();
-        }
-    }
-
-    public static boolean returnBook(String name) {
-        boolean bookFound = false;
-        for(Book book : books) {
-            if (book.getName().equals(name) && book.getIsCheckedOut()) {
-                book.setIsCheckedOut(false);
-                bookFound = true;
-                break;
-            }
-        }
-        return bookFound;
-    }
-
-    public static void printReturnBookMessages(boolean success) {
-        if (success) {
-            System.out.println("Thank you for returning the book.\n");
-            showMainMenuOptions();
-        } else {
-            System.out.println("That is not a valid book to return. Please try again.\n");
-            returnBookMenuOption();
-        }
-    }
-
-    public static void returnBookMenuOption(){
-        String returnBookMenu = "Return Book\nReturn your book by inputting its name:";
-
-        System.out.println(returnBookMenu);
-
-        Scanner scan = new Scanner(System.in);
-        String userBookNameInput = scan.nextLine();
-
-        printReturnBookMessages(returnBook(userBookNameInput));
     }
 
 }
