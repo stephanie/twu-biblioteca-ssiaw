@@ -61,6 +61,7 @@ public class Menu {
                         break;
                     case 5:
                         Session.showCurrentUserInformation();
+                        Session.checkUserInputToReturnToMainMenu();
                         break;
                     case 6:
                         System.out.println("Thank you for using Biblioteca! Exiting system...");

@@ -29,13 +29,27 @@ public class Session {
         currentUser = user;
     }
 
+    public static User getCurrentUser() {
+        return currentUser;
+    }
+
     public static void showCurrentUserInformation() {
-        String userInfo = "User Information. Press q to return to Main Menu: \n\n";
+        String userInfo = "User Information\n\n";
         userInfo += "Name: " + currentUser.getName() + "\n";
         userInfo += "Email Address: " + currentUser.getEmail() + "\n";
         userInfo += "Phone Number: " + currentUser.getPhone() + "\n";
 
         System.out.println(userInfo);
+    }
+
+    public static void checkUserInputToReturnToMainMenu() {
+        System.out.println("Press q to return to Main Menu...");
+        String userInput = scan.nextLine();
+
+        if (userInput.equals("q")) {
+            Menu.showMainOptions();
+            Menu.getUserMainOptionSelection();
+        }
     }
 
     public static String getUserLibraryNumberInput() {
@@ -53,7 +67,7 @@ public class Session {
     }
 
     public static void login() {
-        System.out.print("Please login to continue:\n\n");
+        System.out.print("Please login to continue.\n\n");
 
         if (authenticate(getUserLibraryNumberInput(), getUserPasswordInput())) {
             System.out.println("Login success!\n");
@@ -62,8 +76,7 @@ public class Session {
             Menu.getUserMainOptionSelection();
         } else {
             System.out.println("Login incorrect! Please try again.\n");
-            getUserLibraryNumberInput();
-            getUserPasswordInput();
+            login();
         }
     }
 

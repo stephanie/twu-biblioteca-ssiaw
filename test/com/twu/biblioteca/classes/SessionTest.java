@@ -40,7 +40,7 @@ public class SessionTest {
         User user = new User("1246789", "Bob Jones", "bobjones@gmail.com", "111-222-3333");
         Session.addUser(user);
 
-        String userInfo = "User Information. Press q to return to Main Menu: \n\n";
+        String userInfo = "User Information\n\n";
         userInfo += "Name: " + user.getName() + "\n";
         userInfo += "Email Address: " + user.getEmail() + "\n";
         userInfo += "Phone Number: " + user.getPhone() + "\n\n";
