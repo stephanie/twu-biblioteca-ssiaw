@@ -2,7 +2,6 @@ package com.twu.biblioteca.models;
 
 import java.util.Random;
 
-
 public class User {
     private String libraryNumber;
     private String password;
