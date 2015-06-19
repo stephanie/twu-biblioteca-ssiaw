@@ -27,6 +27,7 @@ public class Movie {
         return director;
     }
 
+    //TODO: Add validation that rating is between 1-10
     public int getRating() {
         return rating;
     }
