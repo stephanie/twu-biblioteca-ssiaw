@@ -8,6 +8,7 @@ import java.util.Scanner;
 public class MovieLibrary {
 
     public static ArrayList<Movie> movies = new ArrayList<Movie>();
+    private static Scanner scan = new Scanner(System.in);
 
     public static void addMovie(Movie movie) {
         MovieLibrary.movies.add(movie);
@@ -45,9 +46,7 @@ public class MovieLibrary {
     }
 
     public static void getUserMovieSelection() {
-        Scanner scan = new Scanner(System.in);
         int userSelection = scan.nextInt();
-
         selectMovieListOption(userSelection);
     }
 
@@ -109,9 +108,7 @@ public class MovieLibrary {
     }
 
     public static void getUserReturnMovieInput() {
-        Scanner scan = new Scanner(System.in);
         String userInput = scan.nextLine();
-
         printReturnMovieMessages(returnMovie(userInput));
     }
 

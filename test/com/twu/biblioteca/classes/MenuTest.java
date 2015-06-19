@@ -33,7 +33,8 @@ public class MenuTest {
         menu += "2. Return Book\n";
         menu += "3. List Available Movies\n";
         menu += "4. Return Movie\n";
-        menu += "5. Quit\n";
+        menu += "5. User Information\n";
+        menu += "6. Logout\n";
 
         Menu.addMainOptions();
         Menu.showMainOptions();

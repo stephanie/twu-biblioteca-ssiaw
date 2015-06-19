@@ -8,6 +8,7 @@ import java.util.Scanner;
 public class BookLibrary {
 
     public static ArrayList<Book> books = new ArrayList<Book>();
+    private static Scanner scan = new Scanner(System.in);
 
     public static void addBook(Book book) {
         BookLibrary.books.add(book);
@@ -44,9 +45,7 @@ public class BookLibrary {
     }
 
     public static void getUserBookSelection() {
-        Scanner scan = new Scanner(System.in);
         int userSelection = scan.nextInt();
-
         selectBookListOption(userSelection);
     }
 
@@ -107,9 +106,7 @@ public class BookLibrary {
     }
 
     public static void getUserReturnBookInput() {
-        Scanner scan = new Scanner(System.in);
         String userInput = scan.nextLine();
-
         printReturnBookMessages(returnBook(userInput));
     }
 

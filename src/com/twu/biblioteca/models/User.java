@@ -8,6 +8,7 @@ public class User {
     private String name;
     private String email;
     private String phone;
+    private boolean isLoggedIn;
 
     public User(String password, String name, String email, String phone) {
         this.libraryNumber = generateLibraryNumber();
@@ -15,6 +16,7 @@ public class User {
         this.name = name;
         this.email = email;
         this.phone = phone;
+        this.isLoggedIn = false;
     }
 
     public static String generateLibraryNumber() {
@@ -37,6 +39,10 @@ public class User {
         return libraryNumber;
     }
 
+    public String getPassword() {
+        return password;
+    }
+
     public String getName() {
         return name;
     }
@@ -47,6 +53,14 @@ public class User {
 
     public String getPhone() {
         return phone;
+    }
+
+    public void setIsLoggedIn(boolean loggedIn) {
+        isLoggedIn = loggedIn;
+    }
+
+    public boolean getIsLoggedIn() {
+        return isLoggedIn;
     }
 
 }

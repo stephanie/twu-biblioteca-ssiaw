@@ -14,6 +14,7 @@ public class UserTest {
 
         User myUser = new User(password, name, email, phone);
 
+        assertEquals(myUser.getPassword(), password);
         assertEquals(myUser.getName(), name);
         assertEquals(myUser.getEmail(), email);
         assertEquals(myUser.getPhone(), phone);

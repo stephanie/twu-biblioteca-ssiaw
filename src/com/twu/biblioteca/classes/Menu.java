@@ -7,13 +7,15 @@ import java.util.Scanner;
 public class Menu {
 
     public static ArrayList<String> mainOptions = new ArrayList<String> ();
+    private static Scanner scan = new Scanner(System.in);
 
     public static void addMainOptions() {
         mainOptions.add("List Available Books");
         mainOptions.add("Return Book");
         mainOptions.add("List Available Movies");
         mainOptions.add("Return Movie");
-        mainOptions.add("Quit");
+        mainOptions.add("User Information");
+        mainOptions.add("Logout");
     }
 
     public static void showMainOptions() {
@@ -28,9 +30,7 @@ public class Menu {
     }
 
     public static void getUserMainOptionSelection() {
-        Scanner scan = new Scanner(System.in);
         int userSelection = scan.nextInt();
-
         selectMainOption(userSelection);
     }
 
@@ -60,6 +60,9 @@ public class Menu {
                         MovieLibrary.returnMovieMenuOption(); MovieLibrary.getUserReturnMovieInput();
                         break;
                     case 5:
+                        Session.showCurrentUserInformation();
+                        break;
+                    case 6:
                         System.out.println("Thank you for using Biblioteca! Exiting system...");
                         System.exit(0);
                 }

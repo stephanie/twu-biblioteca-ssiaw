@@ -5,7 +5,7 @@ import com.twu.biblioteca.classes.BookLibrary;
 import com.twu.biblioteca.models.Movie;
 import com.twu.biblioteca.models.Book;
 import com.twu.biblioteca.models.User;
-import com.twu.biblioteca.classes.Menu;
+import com.twu.biblioteca.classes.Session;
 
 public class Main {
 
@@ -20,10 +20,10 @@ public class Main {
         MovieLibrary.addMovie(new Movie("The Hackathon", 2007, "Judge Judy", 6));
         MovieLibrary.addMovie(new Movie("Into the Code", 1990, "Dee Bugger", 10));
 
-//        User user = new User("1237890", "Bob Jones", "bobjones@gmail.com", "123-1341-1323");
+        Session.addUser(new User("1246789", "Bob Jones", "bobjones@gmail.com", "111-222-3333"));
+        Session.addUser(new User("1246789", "Sally Cheng", "sallycheng@gmail.com", "131-232-3333"));
 
-        Menu.addMainOptions();
-        Menu.showMainOptions(); Menu.getUserMainOptionSelection();
+        Session.login();
     }
 
     public static void printWelcomeMessage(){
