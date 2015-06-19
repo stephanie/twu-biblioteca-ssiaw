@@ -43,7 +43,8 @@ public class SessionTest {
         String userInfo = "User Information\n\n";
         userInfo += "Name: " + user.getName() + "\n";
         userInfo += "Email Address: " + user.getEmail() + "\n";
-        userInfo += "Phone Number: " + user.getPhone() + "\n\n";
+        userInfo += "Phone Number: " + user.getPhone() + "\n";
+        //userInfo += "Books checked out:\nMovies checked out:\n\n";
 
         Session.setCurrentUser(user);
         Session.showCurrentUserInformation();

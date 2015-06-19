@@ -1,6 +1,8 @@
 package com.twu.biblioteca.classes;
 
 import com.twu.biblioteca.models.User;
+import com.twu.biblioteca.models.Book;
+import com.twu.biblioteca.models.Movie;
 import java.util.ArrayList;
 
 import java.util.Scanner;
@@ -39,6 +41,23 @@ public class Session {
         userInfo += "Email Address: " + currentUser.getEmail() + "\n";
         userInfo += "Phone Number: " + currentUser.getPhone() + "\n";
 
+//      TODO: Get book and movie checkout list to work
+//        String checkedOutBooks = "Books checked out:\n";
+//        for (Book book : BookLibrary.books) {
+//            if (book.getUserLibraryNumber().equals(currentUser.getLibraryNumber())) {
+//                checkedOutBooks += "\n" + book.getName() + ", " + book.getAuthor() + ", " + book.getYearPublished() + "\n";
+//            }
+//        }
+//
+//        String checkedOutMovies = "Movies checked out:\n";
+//        for (Movie movie : MovieLibrary.movies) {
+//            if (movie.getUserLibraryNumber().equals(currentUser.getLibraryNumber())) {
+//                checkedOutMovies += movie.getName() + ", " + movie.getYear() + ", " + movie.getDirector() + ", Rating: " + movie.getRating() + "\n";
+//            }
+//        }
+//
+//        userInfo += checkedOutBooks += checkedOutMovies;
+
         System.out.println(userInfo);
     }
 
@@ -54,16 +73,12 @@ public class Session {
 
     public static String getUserLibraryNumberInput() {
         System.out.print("Input library number: ");
-        String libraryNumber = scan.nextLine();
-
-        return libraryNumber;
+        return scan.nextLine();
     }
 
     public static String getUserPasswordInput() {
         System.out.print("Input password: ");
-        String password = scan.nextLine();
-
-        return password;
+        return scan.nextLine();
     }
 
     public static void login() {
