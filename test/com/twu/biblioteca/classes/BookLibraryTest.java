@@ -43,14 +43,13 @@ public class BookLibraryTest {
     }
 
     @Test
-    public void successMsgIfCanCheckoutBook() {
+    public void canCheckoutBook() {
         Book book1 = new Book("Grapes of Ruby", "Coder McGee II", 1987);
         BookLibrary.addBook(book1);
 
-        BookLibrary.selectBookListOption(1);
-        String successCheckoutMsg = "Thank you! Enjoy the book!\n\n";
+        BookLibrary.checkoutBook(book1);
 
-        assertEquals(successCheckoutMsg, outContent.toString());
+        assertTrue(book1.getIsCheckedOut());
     }
 
     @Test

@@ -51,9 +51,10 @@ public class MovieLibrary {
         selectMovieListOption(userSelection);
     }
 
-    public static void availableMovieListAndUserSelection() {
-        showAvailableMovieList();
-        getUserMovieSelection();
+
+    public static void checkoutMovie(Movie selectedMovie) {
+        selectedMovie.setIsCheckedOut(true);
+        System.out.println("Thank you! Enjoy the movie!\n");
     }
 
     public static void selectMovieListOption(int optionNumber) {
@@ -62,23 +63,22 @@ public class MovieLibrary {
         try {
             if (optionNumber <= 0 || optionNumber > availableMovies.size() + 1) {
                 Menu.invalidOptionMessage();
-                availableMovieListAndUserSelection();
+                showAvailableMovieList(); getUserMovieSelection();
 
             //Checkout movie
             } else if (optionNumber > 0 && optionNumber <= availableMovies.size()) {
                 int movieIndex = optionNumber - 1;
                 Movie selectedMovie = availableMovies.get(movieIndex);
-                selectedMovie.setIsCheckedOut(true);
-                System.out.println("Thank you! Enjoy the movie!\n");
-                availableMovieListAndUserSelection();
+                checkoutMovie(selectedMovie);
+                showAvailableMovieList(); getUserMovieSelection();
                 
             //Return to main menu
             } else if (optionNumber == availableMovies.size() + 1) {
-                Menu.mainOptionsAndUserSelection();
+                Menu.showMainOptions(); Menu.getUserMainOptionSelection();
             }
         } catch (Exception e) {
             Menu.invalidOptionMessage();
-            availableMovieListAndUserSelection();
+            showAvailableMovieList(); getUserMovieSelection();
         }
     }
 
@@ -97,16 +97,11 @@ public class MovieLibrary {
     public static void printReturnMovieMessages(boolean success) {
         if (success) {
             System.out.println("Thank you for returning the movie.\n");
-            Menu.mainOptionsAndUserSelection();
+            Menu.showMainOptions(); Menu.getUserMainOptionSelection();
         } else {
             System.out.println("That is not a valid movie to return. Please try again.\n");
-            returnMovieOptionAndUserInput();
+            returnMovieMenuOption(); getUserReturnMovieInput();
         }
-    }
-
-    public static void returnMovieOptionAndUserInput() {
-        returnMovieMenuOption();
-        getUserReturnMovieInput();
     }
 
     public static void returnMovieMenuOption(){

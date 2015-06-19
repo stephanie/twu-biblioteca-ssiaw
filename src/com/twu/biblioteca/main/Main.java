@@ -20,7 +20,7 @@ public class Main {
         MovieLibrary.addMovie(new Movie("Into the Code", 1990, "Dee Bugger", 10));
 
         Menu.addMainOptions();
-        Menu.mainOptionsAndUserSelection();
+        Menu.showMainOptions(); Menu.getUserMainOptionSelection();
     }
 
     public static void printWelcomeMessage(){

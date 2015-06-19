@@ -42,14 +42,13 @@ public class MovieLibraryTest {
     }
 
     @Test
-    public void successMsgIfCanCheckoutMovie() {
+    public void canCheckoutMovie() {
         Movie movie1 = new Movie("Code Avengers III", 2011, "Bob Jones", 9);
         MovieLibrary.addMovie(movie1);
 
-        MovieLibrary.selectMovieListOption(1);
-        String successCheckoutMsg = "Thank you! Enjoy the movie!\n\n";
+        MovieLibrary.checkoutMovie(movie1);
 
-        assertEquals(successCheckoutMsg, outContent.toString());
+        assertTrue(movie1.getIsCheckedOut());
     }
 
     @Test

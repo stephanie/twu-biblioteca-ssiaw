@@ -34,34 +34,30 @@ public class Menu {
         selectMainOption(userSelection);
     }
 
-    public static void mainOptionsAndUserSelection() {
-        showMainOptions();
-        getUserMainOptionSelection();
-    }
-
     public static void invalidOptionMessage() {
         System.out.println("Invalid option. Please select a valid option.\n");
-        mainOptionsAndUserSelection();
     }
 
     public static void selectMainOption(int optionNumber) {
         try {
             if (optionNumber <= 0 || optionNumber > mainOptions.size()) {
                 invalidOptionMessage();
+                showMainOptions(); getUserMainOptionSelection();
+
             } else {
                 //TODO: Find another more flexible method to switch menu options later
                 switch (optionNumber) {
                     case 1:
-                        BookLibrary.availableBookListAndUserSelection();
+                        BookLibrary.showAvailableBookList(); BookLibrary.getUserBookSelection();
                         break;
                     case 2:
-                        BookLibrary.returnBookOptionAndUserInput();
+                        BookLibrary.returnBookMenuOption(); BookLibrary.getUserReturnBookInput();
                         break;
                     case 3:
-                        MovieLibrary.availableMovieListAndUserSelection();
+                        MovieLibrary.showAvailableMovieList(); MovieLibrary.getUserMovieSelection();
                         break;
                     case 4:
-                        MovieLibrary.returnMovieOptionAndUserInput();
+                        MovieLibrary.returnMovieMenuOption(); MovieLibrary.getUserReturnMovieInput();
                         break;
                     case 5:
                         System.out.println("Thank you for using Biblioteca! Exiting system...");
@@ -70,6 +66,8 @@ public class Menu {
             }
         } catch (Exception e) {
             invalidOptionMessage();
+            showMainOptions(); getUserMainOptionSelection();
+
         }
     }
 

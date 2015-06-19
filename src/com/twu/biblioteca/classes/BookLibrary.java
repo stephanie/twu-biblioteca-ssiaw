@@ -50,9 +50,9 @@ public class BookLibrary {
         selectBookListOption(userSelection);
     }
 
-    public static void availableBookListAndUserSelection() {
-        showAvailableBookList();
-        getUserBookSelection();
+    public static void checkoutBook(Book selectedBook) {
+        selectedBook.setIsCheckedOut(true);
+        System.out.println("Thank you! Enjoy the book!\n");
     }
 
     public static void selectBookListOption(int optionNumber) {
@@ -61,23 +61,22 @@ public class BookLibrary {
         try {
             if (optionNumber <= 0 || optionNumber > availableBooks.size() + 1) {
                 Menu.invalidOptionMessage();
-                availableBookListAndUserSelection();
+                showAvailableBookList(); getUserBookSelection();
 
             //Checkout book
             } else if (optionNumber > 0 && optionNumber <= availableBooks.size()) {
                 int bookIndex = optionNumber - 1;
                 Book selectedBook = availableBooks.get(bookIndex);
-                selectedBook.setIsCheckedOut(true);
-                System.out.println("Thank you! Enjoy the book!\n");
-                availableBookListAndUserSelection();
+                checkoutBook(selectedBook);
+                showAvailableBookList(); getUserBookSelection();
                 
             //Return to main menu
             } else if (optionNumber == availableBooks.size() + 1) {
-                Menu.mainOptionsAndUserSelection();
+                Menu.showMainOptions(); Menu.getUserMainOptionSelection();
             }
         } catch (Exception e) {
             Menu.invalidOptionMessage();
-            availableBookListAndUserSelection();
+            showAvailableBookList(); getUserBookSelection();
         }
     }
 
@@ -96,16 +95,11 @@ public class BookLibrary {
     public static void printReturnBookMessages(boolean success) {
         if (success) {
             System.out.println("Thank you for returning the book.\n");
-            Menu.mainOptionsAndUserSelection();
+            Menu.showMainOptions(); Menu.getUserMainOptionSelection();
         } else {
             System.out.println("That is not a valid book to return. Please try again.\n");
-            returnBookOptionAndUserInput();
+            returnBookMenuOption(); getUserReturnBookInput();
         }
-    }
-
-    public static void returnBookOptionAndUserInput() {
-        returnBookMenuOption();
-        getUserReturnBookInput();
     }
 
     public static void returnBookMenuOption(){
