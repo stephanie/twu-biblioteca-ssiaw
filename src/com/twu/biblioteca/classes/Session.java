@@ -39,14 +39,14 @@ public class Session {
     }
 
     public static String getUserLibraryNumberInput() {
-        System.out.print("Input Library Number: ");
+        System.out.print("Input library number: ");
         String libraryNumber = scan.nextLine();
 
         return libraryNumber;
     }
 
     public static String getUserPasswordInput() {
-        System.out.print("Input Password: ");
+        System.out.print("Input password: ");
         String password = scan.nextLine();
 
         return password;
@@ -56,12 +56,12 @@ public class Session {
         System.out.print("Please login to continue:\n\n");
 
         if (authenticate(getUserLibraryNumberInput(), getUserPasswordInput())) {
-            System.out.println("Login success!");
+            System.out.println("Login success!\n");
             Menu.addMainOptions();
             Menu.showMainOptions(); 
             Menu.getUserMainOptionSelection();
         } else {
-            System.out.println("Login incorrect! Please try again.");
+            System.out.println("Login incorrect! Please try again.\n");
             getUserLibraryNumberInput();
             getUserPasswordInput();
         }

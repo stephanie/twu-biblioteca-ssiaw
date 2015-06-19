@@ -20,8 +20,8 @@ public class Main {
         MovieLibrary.addMovie(new Movie("The Hackathon", 2007, "Judge Judy", 6));
         MovieLibrary.addMovie(new Movie("Into the Code", 1990, "Dee Bugger", 10));
 
-        Session.addUser(new User("1246789", "Bob Jones", "bobjones@gmail.com", "111-222-3333"));
-        Session.addUser(new User("1246789", "Sally Cheng", "sallycheng@gmail.com", "131-232-3333"));
+        Session.addUser(new User("123-4567", "123456789", "Bob Jones", "bobjones@gmail.com", "111-222-3333"));
+        Session.addUser(new User("890-1234", "123456789", "Sally Cheng", "sallycheng@gmail.com", "131-232-3333"));
 
         Session.login();
     }

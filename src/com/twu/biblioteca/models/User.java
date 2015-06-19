@@ -10,6 +10,15 @@ public class User {
     private String phone;
     private boolean isLoggedIn;
 
+    public User(String libraryNumber, String password, String name, String email, String phone) {
+        this.libraryNumber = libraryNumber;
+        this.password = password;
+        this.name = name;
+        this.email = email;
+        this.phone = phone;
+        this.isLoggedIn = false;
+    }
+
     public User(String password, String name, String email, String phone) {
         this.libraryNumber = generateLibraryNumber();
         this.password = password;
