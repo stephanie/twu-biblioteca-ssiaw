@@ -4,6 +4,7 @@ import com.twu.biblioteca.classes.MovieLibrary;
 import com.twu.biblioteca.classes.BookLibrary;
 import com.twu.biblioteca.models.Movie;
 import com.twu.biblioteca.models.Book;
+import com.twu.biblioteca.models.User;
 import com.twu.biblioteca.classes.Menu;
 
 public class Main {
@@ -18,6 +19,8 @@ public class Main {
         MovieLibrary.addMovie(new Movie("Code Avengers III", 2011, "Bob Jones", 9));
         MovieLibrary.addMovie(new Movie("The Hackathon", 2007, "Judge Judy", 6));
         MovieLibrary.addMovie(new Movie("Into the Code", 1990, "Dee Bugger", 10));
+
+//        User user = new User("1237890", "Bob Jones", "bobjones@gmail.com", "123-1341-1323");
 
         Menu.addMainOptions();
         Menu.showMainOptions(); Menu.getUserMainOptionSelection();

@@ -8,28 +8,27 @@ public class UserTest {
     @Test
     public void testConstructorTakesPasswordNameEmailPhone() {
         String password = "123456789";
-        int name = "Bob Jones";
+        String name = "Bob Jones";
         String email = "bobjones@gmail.com";
-        int phone = "111-222-3333";
+        String phone = "111-222-3333";
 
         User myUser = new User(password, name, email, phone);
 
-        assertEquals(myMovie.getPassword(), password);
-        assertEquals(myMovie.getName(), name);
-        assertEquals(myMovie.getEmail(), email);
-        assertEquals(myMovie.getPhone(), phone);
+        assertEquals(myUser.getName(), name);
+        assertEquals(myUser.getEmail(), email);
+        assertEquals(myUser.getPhone(), phone);
     }
 
     @Test
     public void testConstructorGeneratesLibraryNumber() {
         String password = "123456789";
-        int name = "Bob Jones";
+        String name = "Bob Jones";
         String email = "bobjones@gmail.com";
-        int phone = "111-222-3333";
+        String phone = "111-222-3333";
 
         User myUser = new User(password, name, email, phone);
 
-        assertTrue(myUser.getLibraryNumber().matches("^\\d{4}$-^\\d{4}$"))
+        assertTrue(myUser.getLibraryNumber().matches("[0-9]{3}-*[0-9]{4}"));
     }
 
 }
