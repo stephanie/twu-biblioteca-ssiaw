@@ -11,6 +11,8 @@ public class Menu {
     public static void addMainOptions() {
         mainOptions.add("List Available Books");
         mainOptions.add("Return Book");
+        mainOptions.add("List Available Movies");
+        mainOptions.add("Return Movie");
         mainOptions.add("Quit");
     }
 
@@ -56,6 +58,12 @@ public class Menu {
                         BookLibrary.returnBookOptionAndUserInput();
                         break;
                     case 3:
+                        MovieLibrary.availableMovieListAndUserSelection();
+                        break;
+                    case 4:
+                        MovieLibrary.returnMovieOptionAndUserInput();
+                        break;
+                    case 5:
                         System.out.println("Thank you for using Biblioteca! Exiting system...");
                         System.exit(0);
                 }
