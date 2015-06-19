@@ -53,6 +53,7 @@ public class MovieLibrary {
 
     public static void checkoutMovie(Movie selectedMovie) {
         selectedMovie.setIsCheckedOut(true);
+        selectedMovie.setUserLibraryNumber(Session.getCurrentUser().getLibraryNumber());
         System.out.println("Thank you! Enjoy the movie!\n");
     }
 
@@ -86,6 +87,7 @@ public class MovieLibrary {
         for(Movie movie : movies) {
             if (movie.getName().equals(name) && movie.getIsCheckedOut()) {
                 movie.setIsCheckedOut(false);
+                movie.setUserLibraryNumber(null);
                 movieFound = true;
                 break;
             }

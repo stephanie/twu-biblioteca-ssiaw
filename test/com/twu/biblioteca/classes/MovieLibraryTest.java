@@ -1,6 +1,7 @@
 package com.twu.biblioteca.classes;
 
 import com.twu.biblioteca.models.Movie;
+import com.twu.biblioteca.models.User;
 
 import org.junit.Before;
 import org.junit.After;
@@ -52,6 +53,20 @@ public class MovieLibraryTest {
     }
 
     @Test
+    public void canSeeUserLibraryNumberOfCheckedOutMovie() {
+        Movie movie1 = new Movie("Code Avengers III", 2011, "Bob Jones", 9);
+        MovieLibrary.addMovie(movie1);
+
+        User user = new User("1246789", "Bob Jones", "bobjones@gmail.com", "111-222-3333");
+        Session.addUser(user);
+        Session.setCurrentUser(user);
+
+        MovieLibrary.checkoutMovie(movie1);
+
+        assertEquals(movie1.getUserLibraryNumber(), user.getLibraryNumber());
+    }
+
+    @Test
     public void canReturnMovie() {
         Movie movie1 = new Movie("Code Avengers III", 2011, "Bob Jones", 9);
         MovieLibrary.addMovie(movie1);
@@ -63,4 +78,18 @@ public class MovieLibraryTest {
         assertFalse(movie1.getIsCheckedOut());
     }
 
+    @Test
+    public void userLibraryNumberOfReturnedMovieisNull() {
+        Movie movie1 = new Movie("Code Avengers III", 2011, "Bob Jones", 9);
+        MovieLibrary.addMovie(movie1);
+
+        User user = new User("1246789", "Bob Jones", "bobjones@gmail.com", "111-222-3333");
+        Session.addUser(user);
+        Session.setCurrentUser(user);
+
+        MovieLibrary.checkoutMovie(movie1);
+        MovieLibrary.returnMovie("Code Avengers III");
+
+        assertEquals(movie1.getUserLibraryNumber(), null);
+    }
 }
