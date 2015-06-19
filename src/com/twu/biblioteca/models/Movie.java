@@ -6,6 +6,7 @@ public class Movie {
     private String director;
     private int rating;
     private boolean isCheckedOut;
+    private String userLibraryNumber;
 
     public Movie(String name, int year, String director, int rating) {
         this.name = name;
@@ -13,6 +14,7 @@ public class Movie {
         this.director = director;
         this.rating = rating;
         this.isCheckedOut = false;
+        this.userLibraryNumber = null;
     }
 
     public String getName() {
@@ -38,6 +40,14 @@ public class Movie {
 
     public boolean getIsCheckedOut() {
         return isCheckedOut;
+    }
+
+    public void setUserLibraryNumber(String userLibraryNumber) {
+        this.userLibraryNumber = userLibraryNumber;
+    }
+
+    public String getUserLibraryNumber() {
+        return userLibraryNumber;
     }
 
 }

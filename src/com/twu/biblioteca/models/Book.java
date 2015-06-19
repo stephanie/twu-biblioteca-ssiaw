@@ -5,6 +5,7 @@ public class Book {
     private String author;
     private int yearPublished;
     private boolean isCheckedOut;
+    private String userLibraryNumber;
 
     public Book(String name, String author, int yearPublished) {
         this.name = name;
@@ -33,4 +34,11 @@ public class Book {
         return isCheckedOut;
     }
 
+    public void setUserLibraryNumber(String userLibraryNumber) {
+        this.userLibraryNumber = userLibraryNumber;
+    }
+
+    public String getUserLibraryNumber() {
+        return userLibraryNumber;
+    }
 }

@@ -31,18 +31,18 @@ public class BookTest {
         assertTrue(myBook.getIsCheckedOut());
     }
 
-//    @Test
-//    public void canSetLibraryNumber() {
-//        String name = "The Great Codesby";
-//        int year = 2015;
-//        String director = "Director Coder";
-//        int rating = 8;
-//        Movie myMovie = new Movie(name, year, director, rating);
-//
-//        String libraryNumber = "123456789";
-//        myMovie.setLibraryNumber(libraryNumber);
-//
-//        assertEquals(myMovie.getLibraryNumber(), libraryNumber);
-//    }
+   @Test
+   public void canSetUserLibraryNumber() {
+       String name = "The Great Codesby";
+       int year = 2015;
+       String director = "Director Coder";
+       int rating = 8;
+       Movie myMovie = new Movie(name, year, director, rating);
+
+       String userLibraryNumber = "123456789";
+       myMovie.setUserLibraryNumber(userLibraryNumber);
+
+       assertEquals(myMovie.getUserLibraryNumber(), userLibraryNumber);
+   }
 
 }
